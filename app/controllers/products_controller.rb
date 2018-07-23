@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   def index
+    @cart = Cart.from_session(session)
     @products = Product.all
   end
 

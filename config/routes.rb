@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: %[index]
+  resource :cart, only: %i[show update] do
+    get 'check_out', to: 'carts#check_out'
+    post 'check_out', to: 'carts#confirm_check_out'
+  end
+
+  resources :orders, only: %i[index]
 
   resources :products
 end

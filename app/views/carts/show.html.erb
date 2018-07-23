@@ -1,0 +1,15 @@
+<h1>Shopping cart</h1>
+
+<% if @cart.products.any? %>
+  <ul>
+    <% @cart.products.each do |product| %>
+      <li>
+        <%= product.name %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No products in cart.</p>
+<% end %>
+
+<%= link_to 'Check out', check_out_cart_path %>
