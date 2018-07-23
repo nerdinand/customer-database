@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <div class="navigation">
+      <ul>
+        <li><%= link_to 'Customers', customers_path %></li>
+        <li><%= link_to 'Orders', orders_path %></li>
+        <li><%= link_to 'Products', products_path %></li>
+      </ul>
+    </div>
+
     <%= yield %>
   </body>
 </html>

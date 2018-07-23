@@ -1,0 +1,14 @@
+<h1>Customers</h1>
+
+<table>
+  <thead>
+    <th>Name</th>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.name, customer %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

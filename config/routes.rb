@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :customers, only: %i[index show] do
+    resources :orders, only: %i[show]
+  end
+
+  resources :orders, only: %[index]
+
+  resources :products, only: %i[index show]
 end
