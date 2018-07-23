@@ -5,12 +5,17 @@ class CartsController < ApplicationController
 
   def update
     product_id = params['cart']['product_id']
-    @cart = Cart.from_session(session)
-    @cart.product_ids << product_id
+    amount = params['cart']['amount']
 
-    session[:cart] = @cart
+    if amount.to_i > 0
+      @cart = Cart.from_session(session)
+      @cart.add_line_item(product_id, amount)
 
-    flash[:notice] = 'Product added to cart.'
+      session[:cart] = @cart
+
+      flash[:notice] = 'Product added to cart.'
+    end
+
     redirect_to products_path
   end
 
@@ -33,5 +38,14 @@ class CartsController < ApplicationController
     session[:cart] = Cart.new
 
     redirect_to products_path
+  end
+
+  def line_item
+    index = params['cart']['index'].to_i
+
+    @cart = Cart.from_session(session)
+    @cart.remove_line_item(index)
+
+    redirect_to cart_path
   end
 end
