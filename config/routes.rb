@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'customers#index'
+
   resources :customers, only: %i[index show] do
     resources :orders, only: %i[show]
   end
