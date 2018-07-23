@@ -4,13 +4,25 @@
   <thead>
     <th></th>
     <th>Name</th>
+    <th></th>
+    <th></th>
   </thead>
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= link_to image_tag(product.image_url, width: 50), product %></td>
+        <td>
+          <% if product.image.present? %>
+            <%= link_to image_tag(product.image_url, width: 50), product %>
+          <% end %>
+        </td>
         <td><%= link_to product.name, product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Delete', product, data: {confirm: 'Are you sure?'}, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New product', new_product_path %>

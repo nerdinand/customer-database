@@ -1,6 +1,8 @@
 <h1><%= @product.name %></h1>
 
-<%= image_tag @product.image_url %>
+<% if @product.image.present? %>
+  <%= image_tag @product.image_url %>
+<% end %>
 
 <p>
   <%= @product.description %>
