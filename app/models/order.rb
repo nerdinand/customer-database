@@ -7,4 +7,20 @@ class Order < ApplicationRecord
       line_item.price_cents
     end
   end
+
+  def paid?
+    paid_at.present?
+  end
+
+  def delivered?
+    delivered_at.present?
+  end
+
+  def paid!
+    self.paid_at = Time.zone.now
+  end
+
+  def delivered!
+    self.delivered_at = Time.zone.now
+  end
 end

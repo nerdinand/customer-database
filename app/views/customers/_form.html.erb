@@ -1,14 +1,4 @@
-<% if @customer.errors.any? %>
-  <div class="form-errors">
-    <ul>
-      <% @customer.errors.full_messages.each do |message| %>
-        <li>
-          <%= message %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: 'form_errors', locals: { model: @customer } %>
 
 <%= form_for @customer do |form| %>
   <p>
