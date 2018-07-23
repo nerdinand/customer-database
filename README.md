@@ -4,6 +4,8 @@ This is a Rails 5.2 sample project for educational purposes.
 
 It is a simple project dealing with customers, products, orders and line items.
 
+An example deployment of the application is running here: https://customer-database.herokuapp.com/
+
 ## Setup
 
 1. Download or clone this repository
