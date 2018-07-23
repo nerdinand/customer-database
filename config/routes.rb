@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'customers#index'
 
-  resources :customers, only: %i[index show] do
+  resources :customers do
     resources :orders, only: %i[show]
   end
 
