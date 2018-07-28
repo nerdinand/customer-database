@@ -1,4 +1,7 @@
-<h1>Customers</h1>
+<h1>        
+  <span class="oi" data-glyph="people"></span>
+  Customers
+</h1>
 
 <table>
   <thead>
@@ -10,8 +13,18 @@
     <% @customers.each do |customer| %>
       <tr>
         <td><%= link_to customer.name, customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Delete', customer, data: {confirm: 'Are you sure?'}, method: :delete %></td>
+        <td>
+          <%= link_to edit_customer_path(customer) do %>
+            <span class="oi" data-glyph="pencil"></span>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to customer, data: {confirm: 'Are you sure?'}, method: :delete do %>
+            <span class="oi" data-glyph="circle-x"></span>
+            Delete
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -19,4 +32,7 @@
 
 <br>
 
-<%= link_to 'New customer', new_customer_path %>
+<%= link_to new_customer_path do %>
+  <span class="oi" data-glyph="plus"></span>
+  New customer
+<% end %>
