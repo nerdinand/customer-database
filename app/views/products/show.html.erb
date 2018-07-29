@@ -19,3 +19,6 @@
     <li><%= link_to customer.name, customer %></li>
   <% end %>
 </ul>
+
+<%= link_to 'Edit', edit_product_path(@product) %>
+<%= link_to 'Delete', @product, data: {confirm: 'Are you sure?'}, method: :delete %>

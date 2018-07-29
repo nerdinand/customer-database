@@ -28,3 +28,8 @@
   <%= @customer.zip_code %> <%= @customer.city %><br>
   Phone: <%= @customer.phone_number %>
 </address>
+
+<br>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %>
+<%= link_to 'Delete', @customer, data: {confirm: 'Are you sure?'}, method: :delete %>
