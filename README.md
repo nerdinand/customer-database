@@ -9,7 +9,7 @@ An example deployment of the application is running here: https://customer-datab
 ## Setup
 
 1. Download or clone this repository
-2. Run `bundle install` in project directory
+2. Run `bundle install --without production` in project directory
 3. Run `rails db:migrate` in project directory
 4. Run `rails runner db/populate_with_fake_data.rb` to generate some fake data to work with. This can take a while because product pictures are being downloaded.
 5. Run `rails server` in project directory
